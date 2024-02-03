@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: my_postgres_db
+    environment:
+      POSTGRES_HOST: pg.pg4e.com
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: pg4e_d763c9b474
+      POSTGRES_USER: pg4e_d763c9b474
+      POSTGRES_PASSWORD: pg4e_p_f34ea2f74e6f5c6
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./schemas:/docker-entrypoint-initdb.d
+
+volumes:
+  pg_data:
+
